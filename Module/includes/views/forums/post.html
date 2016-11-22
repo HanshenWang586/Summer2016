@@ -1,0 +1,21 @@
+<article id="post-<?=$this->post_id?>">
+	<header<?=$this->newest ? ' id="newest"' : '';?>>
+		<span class="details">
+			<? if ($this->nickname) { ?>
+			<span class="username"><?=$this->nickname?></span>
+			<span class="num-posts">(<?=$this->number_of_posts?>) •</span>
+			<? } if ($this->url) { ?>
+			<a class="permalink" href="<?=$this->url?>"><?=$this->date?></a>
+			<? } else { ?>
+			<?=$this->date?>
+			<? } ?>
+		</span>
+		<span class="options">
+			<?=$this->edit;?>
+		</span>
+	</header>
+	<div class="body">
+		<?=$this->forum_path;?>
+		<?=$this->post;?>
+	</div>
+</article>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<meta name="google-site-verification" content="TInDwUhpiXB1CgCUSd_c_M3eS-hx0iMZj84oj6aK4c8">
+	<meta name="msvalidate.01" content="86F18E3FCFA40027D18A7BBF3082EF8F">
+	<meta name="msapplication-TileImage" content="/images/gokunming/gokunming-windows-8.png">
+	<meta name="msapplication-TileColor" content="#0C2948">
+	<meta name="msapplication-starturl" content="/en/">
+	<meta name="msapplication-window" content="width=1024;height=768">
+<?=$this->meta_tags;?>
+			
+	<title><?php echo $this->page_title; ?> GoKunming Mobile</title>
+	
+	<?php echo $this->scripts; ?>
+	
+	<link rel="stylesheet" media="handheld, screen" href="/css/mobile.css">
+	<link rel="publisher" href="https://plus.google.com/b/114252412301521785766/114252412301521785766">
+	<?=$this->header_extra;?>
+	<link rel="apple-touch-icon-precomposed" href="/images/gokunming/apple-touch-icon-144x144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/gokunming/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/gokunming/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/gokunming/apple-touch-icon-precomposed.png">
+</head>
+
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="/en/">Home</a></li>
+				<li><a href="/en/calendar/">Events</a></li>
+				<li><a href="/en/forums/">Forums</a></li>
+				<li><a href="/en/classifieds/">Classifieds</a></li>
+				<li><a href="/en/listings/">Listings</a></li>
+				<li><a href="/en/contact/">Contact Us</a></li>
+				<li><a href="http://www.gokunming.com/en/version/">Regular Site</a></li>
+				<li><?php echo $this->status; ?></li>
+			</ul>
+		</nav>
+	
+		<a href="/en/"><img src="/images/gokunming/gokunming.png" height="58" width="226"></a>
+	</header>
+
+	<div id="body"><?php echo $this->main; ?></div>
+	<? if (!constant('LOCAL')) { ?>
+		<script>
+            window.trackerCode = 'UA-563162-14';
+			var _gaq=[['_setAccount',trackerCode],['_trackPageview']];
+			_gaq.push(function(){
+				window.pageTracker = _gat._getTracker(trackerCode);
+				$(function() {
+					trackOutgoing();
+					trackAds();
+				});
+			});
+			
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+		<script type="text/javascript">
+			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F250055b6af9eb77d7104cbb2438adb47' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	<? } ?>
+</body>
+</html>

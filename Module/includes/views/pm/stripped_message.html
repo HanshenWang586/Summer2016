@@ -1,0 +1,16 @@
+<div class="pm_message">
+	<h2><?=$this->subject; ?></h2>
+	
+	<div class="pm_message_controls">
+		<?php echo $this->reply; ?>
+		<a class="icon-link" href="/en/users/pm_delete/<?=$this->pm_id;?>/"><span class="icon icon-trash"> </span> Delete</a>
+	</div>
+
+	<ul class="infoList">
+	  <li><span class="label">From</span><span class="value"><?php echo $this->from_name; ?></li>
+	  <li><span class="label">To</span><span class="value"><?php echo $this->to_name; ?></li>
+	  <li><span class="label">Date</span><span class="value"><?=$this->date;?></li>
+	</ul>
+	
+	<div class="body"><?php echo $this->message; ?></div>
+</div>

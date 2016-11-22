@@ -1,0 +1,19 @@
+<section id="contributor" class="vcard">
+	<? if ($this->google_plus or $this->bio or !$this->content) { ?>
+		<h1 class="dark">Profile: <?=$this->name?></h1>
+		<?=$this->image_tag;?>
+		<? if ($this->google_plus) { ?>
+			<p class="social_networks">Find <?=$this->author;?> on <a class="url" rel="me" href="<?=$this->google_plus;?>?rel=author">Google+</a></p>
+		<? } if ($this->bio) { ?>
+			<p class="bio note"><?=$this->bio;?></p>
+		<? } ?>
+	<? } ?>
+	<? if ($this->content) { ?>
+	<h2 id="postsTitle">Posts by <span class="fn"><?=$this->name?></span></h2>
+	<?=$this->searchInfo;?>
+	<div class="itemList">
+		<?=$this->content;?>
+	</div>
+	<?=$this->pagination;?>
+	<? } ?>
+</section>

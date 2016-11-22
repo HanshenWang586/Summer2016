@@ -1,0 +1,8 @@
+#categorySelect { padding: 10px 0 0 40px; }
+#categorySelect select { height: 145px; }
+
+.categorySelect { paddingd: 40px 0 10px; }
+	.categorySelect li { width: 275px; margin-right: 8px; padding-right: 5px; float: left; }
+		.categorySelect span.icon { float: left; vertical-align: middle; margin-right: 5px; width: 60px; text-align: center; }
+			.categorySelect a { vertical-align: middle; float: left; margin-bottom: 8px; overflow: hidden; line-height: 25px; font-size: 14px; text-decoration: none; line-height: 15px; }
+			.categorySelect a:hover { text-decoration: underline; }

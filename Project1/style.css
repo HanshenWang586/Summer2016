@@ -1,0 +1,48 @@
+
+.kun{
+	height: 600px;
+	width: 900px;
+}
+
+#Next{
+	height:200px;
+	width: 200px;
+}
+
+#Previous{
+	height:200px;
+	width: 200px;
+}
+
+
+#button .NextButton
+{
+    position: absolute;
+    top: 30%;
+    right: 2%;
+}
+
+#button .PreButton
+{
+    position: absolute;
+    top: 30%;
+    left: 2%;
+}
+
+#slideshow{
+	margin: 0px auto;
+}
+
+.slideshow ul li {
+	margin: 0;
+	padding: 0;
+	font-size: 1%;
+	list-style: none;
+	display: none;
+}
+
+.slideshow ul{
+	text-align: center;
+}
+
+

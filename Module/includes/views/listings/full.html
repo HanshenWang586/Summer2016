@@ -1,0 +1,105 @@
+<div id="listing">
+	<h1 class="dark"><a href="<?=$this->cityURL?>"><?=$this->title;?></a></h1>
+	<?=$this->status?>
+	<div id="controls">
+		<? if ($this->isAdmin or $this->isOwner) { ?>
+			<a class="button" href="<?=$this->url(array('m' => 'listings', 'view' => 'edit', 'id' => $this->listing_id));?>"><span class="icon icon-edit"></span><?=$this->lang('LINK_EDIT', 'ListingsModel');?></a>
+			<a class="button" href="<?=$this->url(array('m' => 'listings', 'view' => 'logo', 'id' => $this->listing_id));?>"><span class="icon icon-picture"></span><?=$this->lang('LINK_EDIT_POSTER', 'ListingsModel');?></a>
+			<a class="button" href="<?=$this->url(array('m' => 'listings', 'view' => 'form_photo', 'id' => $this->listing_id));?>"><span class="icon icon-picture"></span><?=$this->lang('LINK_EDIT_PHOTOS', 'ListingsModel');?></a>
+		<? } ?>
+		<? if ($this->isAdmin) {
+			if ($this->approved < 1) { ?>
+			<a class="button" href="<?=$this->url(array('view' => 'approve'), false, true);?>"><span class="icon icon-checkmark"></span><?=$this->lang('LINK_APPROVE', 'ListingsModel');?></a>
+			<? } if ($this->approved > -1) { ?>
+			<a class="button" href="<?=$this->url(array('view' => 'reject'), false, true);?>"><span class="icon icon-cancel"></span><?=$this->lang('LINK_REJECT', 'ListingsModel');?></a>
+			<? } if ($this->live == 1) { ?>
+			<a class="button" href="<?=$this->url(array('view' => 'delete'), false, true);?>"><span class="icon icon-trash"></span><?=$this->lang('LINK_DELETE', 'ListingsModel');?></a>
+			<? } else { ?>
+			<a class="button" href="<?=$this->url(array('view' => 'undelete'), false, true);?>"><span class="icon icon-flag"></span><?=$this->lang('LINK_UNDELETE', 'ListingsModel');?></a>
+			<? } ?>
+		<? } ?>
+	</div>
+	<article itemscope itemtype="http://schema.org/LocalBusiness" id="listing">
+		<h1 class="title" itemprop="name"><a href="<?=$this->url;?>"><?=$this->name?></a></h1>
+		<div class="row">
+			<div class="span5">
+				<div class="details clearfix whiteBox">
+					<small><?=$this->lang('BOX_INFORMATION', 'ListingsModel')?></small>
+					<?=$this->info?>
+				</div>
+				<? if ($this->short) { ?>
+				<div class="short whiteBox">
+					<?=$this->short?>
+				</div>
+				<? } if ($this->categories) { ?>
+				<div class="rating whiteBox">
+					<small><?=$this->lang('BOX_CATEGORIES', 'ListingsModel')?></small>
+					<?=$this->categories?>
+				</div>
+				<? } ?>
+				<div class="sharing whiteBox">
+					<small><?=$this->lang('BOX_SHARING', 'ListingModel')?></small>
+					<?=$this->social?>
+				</div>
+			</div>
+			<div class="span3">
+				<? if ($this->logo_thumb) { ?>
+				<a href="<?=$this->logo_path?>" itemprop="logo" class="img lightbox"><?=$this->logo_thumb;?></a>
+				<? } if ($this->stars) { ?>
+				<div class="rating whiteBox">
+					<small><?=$this->lang('BOX_RATING', 'ListingsModel')?></small>
+					<?=$this->stars?>
+				</div>
+				<? } ?>
+				<? if ($this->userAdded or $this->userUpdated) { ?>
+				<div class="usersBox whiteBox">
+					<small><?=$this->lang('BOX_USERS', 'ListingModel')?></small>
+					<? if ($this->userAdded) printf('<div>%s %s, %s</div>', $this->lang('ADDED_BY', 'ListingsModel'), $this->userAdded->getLinkedNickname(), $this->timeAdded); ?>
+					<? if ($this->userUpdated and (!$this->userAdded or $this->timeUpdated != $this->timeAdded)) printf('<div>%s %s, %s</div>', $this->lang('UPDATED_BY', 'ListingsModel'), $this->userUpdated->getLinkedNickname(), $this->timeUpdated); ?>
+				</div>
+				<? } ?>
+			</div>
+		</div>
+		<ul class="tabCaptions">
+			<? $url = $this->url(false, false, true); ?>
+			<? if ($this->map) { ?><li><a class="active" href="<?=$url?>#tab_map"><?=$this->lang('TAB_MAP', 'ListingsModel');?></a></li><? } ?>
+			<? if ($this->description) { ?><li><a href="<?=$url?>#tab_description"><?=$this->lang('TAB_DESCRIPTION', 'ListingsModel');?></a></li><? } ?>
+			<? if ($this->images) { ?><li><a href="<?=$url?>#tab_images"><?=$this->lang('TAB_IMAGES', 'ListingsModel');?></a></li><? } ?>
+			<li><a href="<?=$url?>#tab_reviews"><?=$this->lang('TAB_REVIEWS', 'ListingsModel');?></a></li>
+			<? if ($this->events) { ?><li><a href="<?=$url?>#tab_events"><?=$this->lang('TAB_EVENTS', 'ListingsModel');?></a></li><? } ?>
+		</ul>
+		<div class="tabs">
+			<? if ($this->map) { ?>
+			<div class="tab active" id="tab_map">
+				<h2><?=$this->lang('TAB_MAP', 'ListingsModel');?></h2>
+				<?=$this->map;?>
+			</div>
+			<? } if ($this->description) { ?>
+			<div class="tab" id="tab_description" itemprop="description">
+				<h2><?=$this->lang('TAB_DESCRIPTION', 'ListingsModel');?></h2>
+				<div class="tabContent">
+					<?=$this->description; ?>
+				</div>
+			</div>
+			<? } if ($this->images) { ?>
+			<div class="tab" id="tab_images">
+				<h2><?=$this->lang('TAB_IMAGES', 'ListingsModel');?></h2>
+				<?=$this->images; ?>
+			</div>
+			<? } ?>
+			<div class="tab reviewsList userContentList" id="tab_reviews">
+				<h2><?=$this->lang('TAB_REVIEWS', 'ListingsModel');?></h2>
+				<?=$this->reviews; ?>
+				<?=$this->form_review; ?>
+			</div>
+			<? if ($this->events) { ?>
+			<div class="tab" id="tab_events">
+				<h2><?=$this->lang('TAB_EVENTS', 'ListingsModel');?></h2>
+				<div class="row">
+					<?=$this->events;?>
+				</div>
+			</div>
+			<? } ?>
+		</div>
+	</article>
+</div>

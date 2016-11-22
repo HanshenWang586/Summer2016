@@ -1,0 +1,9 @@
+span.lang_m { display: block; }
+span.lang_empty { color: red; }
+span.lang_default { color: green; }
+
+th.name { width: 200px; }
+th.actions { width: 50px; }
+
+table.langList td { vertical-align: top; }
+table.langList a { float: left; }

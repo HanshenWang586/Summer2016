@@ -1,0 +1,8 @@
+index.php|List Blog Items
+form_item.php|Add Blog Item
+blog_galleries.php|Blog Galleries
+rss_stats.php|RSS Statistics
+search.php|Search Entries
+comments.php|List Comments
+comments_stats.php|Comment Statistics
+images.php|Images

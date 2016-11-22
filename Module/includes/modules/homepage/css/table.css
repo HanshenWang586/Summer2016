@@ -1,0 +1,13 @@
+span.lang_m { display: block; }
+span.lang_empty { color: red; }
+span.lang_default { color: green; }
+
+th.name { width: 200px; }
+th.actions { width: 50px; }
+
+table.langList { width: 100%; margin-bottom: 5px; }
+table.langList .odd td { background-color: white; }
+table.langList .even td { background-color: #F8F8F8; }
+table.langList th,
+table.langList td { vertical-align: top; text-align: left; padding: 3px 6px; }
+table.langList a { float: left; }

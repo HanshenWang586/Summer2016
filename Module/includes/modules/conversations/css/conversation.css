@@ -1,0 +1,31 @@
+/* CSS Document */
+
+#conversation {
+	font-weight: 300;
+	font-family: 'Raleway', 'Raleway-Light', 'Open-Sans', 'Open Sans', 'Lato', 'Roboto-Thin', 'Roboto Thin', Helvetica, "Trebuchet MS", Arial, sans-serif!important;
+}
+
+#conversation time { color: #777777; }
+
+#conversationMembers { margin-bottom: 5px; }
+#conversationMembers { font-size: 22px; font-weight: 200; }
+#contentSectionHeader time { font-size: 16px; display: block; margin-bottom: 5px; }
+#conversationReplies { margin: -5px -5px 0; background-color: white; padding: 15px 20px; }
+#conversationReplies .controls { float: right; opacity: 0; transition: opacity ease-out 0.2s; margin: -1px 13px 0 0; }
+#conversationReplies .controls .icon { margin: 0; width: 20px; font-size: 16px; }
+#conversationReplies .reply:hover .controls { opacity: 1; }
+#conversationReplies .myMessage .controls { float: left; margin: -1px 0 0 13px; }
+#conversationReplies .reply { float: left; width: 70%; min-width: 280px; margin-bottom: 10px; }
+#conversationReplies .myMessage { float: right; }
+#conversationReplies .reply .body { text-align: left; background-color: #f1f1f1; color: black; font-size: 16px; line-height: 20px; border: 1px solid #f1f1f1; padding: 8px 14px 0px; clear: both; border-radius: 20px; }
+#conversationReplies .reply .body a { color: inherit; text-decoration: underline; }
+#conversationReplies .reply .body a:hover { text-decoration: none; }
+#conversationReplies .unread .body { border-color: #68a0d5; }
+#conversationReplies .myMessage .body { background-color: #68a0d5; color: white; border-color: #68a0d5; }
+#conversationReplies .nickname,
+#conversationReplies .reply time { float: left; }
+#conversationReplies .nickname { font-size: 16px; margin: 0 5px 0 15px; }
+#conversationReplies .reply time { font-size: 15px; }
+#conversationReplies .myMessage .nickname { margin: 0 15px 0 5px; }
+#conversationReplies .myMessage .nickname,
+#conversationReplies .myMessage time { float: right; }

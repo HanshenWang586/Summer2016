@@ -1,0 +1,50 @@
+<section id="events">
+	<header id="contentHeader">
+		<h1 class="dark"><a href="<?=$this->url(array('m' => 'calendar'))?>"><?=$this->title;?></a></h1>
+	</header>
+	<? if ($this->upcoming) { ?>
+	<section class="horizontalSlider" id="sliderEvents">
+		<h1><?=$this->lang('UPCOMING_EVENTS', 'CalendarModel');?></h1>
+		<div class="innerWrapper">
+			<?=$this->upcoming;?>
+		</div>
+	</section>
+	<? } ?>
+	<?=$this->topAd;?>
+	<div id="controls">
+		<a class="button" href="<?=$this->url(array('m' => 'calendar', 'view' => 'post'));?>"><span class="icon icon-edit"></span><?=$this->lang('LINK_NEW', 'CalendarModel');?></a>
+		<? if ($this->isAdmin) { ?>
+		<a class="icon-link" href="<?=$this->url(array('m' => 'calendar', 'view' => 'moderate'));?>"><span class="icon icon-checkmark"> </span><?=$this->lang('LINK_APPROVE_PAGE', 'CalendarModel');?></a>
+		<? } ?>
+	</div>
+	<section id="currentEvents">
+		<? if ($this->date) { ?>
+		<div class="dateControls">
+			<?
+				$date = $this->date;
+				$next = $date + (3600 * 24);
+				$prev = $date - (3600 * 24);
+			?>
+			<a class="prev" data-date="<?=date('c', $prev);?>" title="<?=date('l, M j, Y', $prev);?>" href="<?=$this->url(array('view' => 'date', 'id' => date('Y-m-d', $prev)), false, true);?>"><span class="icon icon-arrow-left-2"><span><?=$this->lang('PREV')?></span></span></a>
+			<h1 data-title="<?=$this->lang('SELECT_DATE', 'CalendarModel', false, true);?>" class="dateTitle"><span class="icon icon-calendar"></span> <?=date('l M j, Y', $date);?></h1>
+			<a class="next" data-date="<?=date('c', $next);?>" title="<?=date('l, M j, Y', $next);?>" href="<?=$this->url(array('view' => 'date', 'id' => date('Y-m-d', $next)), false, true);?>"><span class="icon icon-arrow-right-2"><span><?=$this->lang('NEXT')?></span></span></a>
+			<div id="monthSliderContainer"><section class="horizontalSlider" id="sliderMonths">
+				<h1><?=$this->lang('SELECT_DATE', 'CalendarModel');?></h1>
+				<div class="innerWrapper">
+					<?=$this->calendar;?>
+				</div>
+			</section></div>
+		</div>
+		<? } ?>
+		<div class="row" id="dateEvents">
+			<? if ($this->current) { ?>
+			<h2 class="span8">Events</h2>
+			<?=$this->current;?>
+			<? } if ($this->recurring) { ?>
+			<h2 class="span8">Specials</h2>
+			<?=$this->recurring;?>
+			<? } ?>
+			<div class="clearfix"></div>
+		</div>
+	</section>
+</section>

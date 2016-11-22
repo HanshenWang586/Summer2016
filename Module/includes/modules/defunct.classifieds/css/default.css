@@ -1,0 +1,39 @@
+#categoriesSearchForm { padding: 0 10px 20px; border-bottom: 1px solid white; margin: 20px 10px; }
+
+#categories { clear: both; }
+#categories .span4 { height: 155px; margin-bottom: 5px; padding-top: 10px; }
+#categories .span4:hover { background: rgba(255,255,255,0.8); border-radius: 5px; box-shadow: 0 0 1px 0 rgba(0,0,0,0.2); }
+#categories .img { width: 80px; float: left; margin: 0 10px 0 5px; text-align: center; }
+#categories h2,
+#categories h3 { text-align: left; }
+#categories h2 { font-size: 18px; font-weight: normal; margin: 5px 0 5px; text-shadow: 2px 3px 0px white; }
+#categories h3 { font-size: 16px; line-height: 21px; font-family: Raleway, sans-serif!important; margin-bottom: 0; text-shadow: 1px 2px 0px white; }
+#categories h3 a {  color: #0982df; }
+#categories h3 a:hover { color: #333; }
+#categories ul { overflow: hidden; }
+
+
+
+
+@media only screen and (min-width:1200px) {
+	#categories .span4 { height: 170px; }
+	#categories .img { width: 115px; margin-right: 0 10px; }
+	#categories h2 { font-size: 24px; }
+	#categories h3 { font-size: 18px; line-height: 25px; }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+	#categories .img { width: 40px; margin-right: 5px; }
+	
+}
+
+@media only screen and (max-width: 767px) {
+	#categories .img { width: 20%; }
+	#categories .span4 { height: auto; padding-bottom: 10px; margin-bottom: 10px; clear: both; overflow: hidden; }
+	#categories h2 { font-size: 24px; }
+	#categories h3 { font-size: 18px; line-height: 25px; }
+}
+
+@media only screen and (max-width: 500px) {
+	#categories h2 { font-size: 20px; }
+}

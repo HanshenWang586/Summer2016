@@ -1,0 +1,348 @@
+body
+{
+margin-left: 0px;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+background-color: #fff;
+
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+}
+
+ul {
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+
+td, input, select, textarea, a
+{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+color: #333;
+text-decoration: none;
+}
+
+input[type="text"] {
+	width: 500px;
+}
+
+a:hover
+{
+text-decoration: underline;
+}
+
+table.main {
+	border-collapse: collapse;
+}
+
+table.main td, table.main th {
+	border: #dedede 1px solid;
+	margin: 0;
+	padding: 3px;
+	vertical-align: top;
+	text-align: left;
+}
+
+tr.fadeout td, tr.fadeout td a:link, tr.fadeout td a:visited, tr.fadeout td .highlight {
+	color: #a6a6a6;
+}
+
+.gen_table
+{
+background-color: #dedede;
+}
+
+.gen_table td
+{
+padding: 3px;
+background-color: #fff;
+}
+
+a:link.underline, a:visited.underline, a:active.underline, a:hover.underline
+{
+text-decoration: underline;
+}
+
+.calendar_month
+{
+background-color: #dedede;
+}
+
+.calendar_days
+{
+background-color: #fff;
+}
+
+.calendar_today
+{
+background-color: #e5e1e1;
+font-size: 9px;
+}
+
+.calendar_extra
+{
+background-color: #f1f1f1;
+}
+
+.calendar_nottoday
+{
+background-color: #fff;
+font-size: 9px;
+}
+
+
+
+
+
+
+
+h1
+{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 20px;
+color: #000;
+margin: 0px;
+padding: 0px;
+}
+
+#side_menu
+{
+padding-left: 12px;
+}
+
+#side_menu ul
+{
+list-style: none;
+margin: 0px;
+padding: 0px;
+}
+
+#side_menu li
+{
+height: 20px;
+}
+
+#header
+{
+width: 100%;
+background-color: #fff;
+}
+
+#header_title
+{
+padding-top: 5px;
+padding-bottom: 8px;
+padding-left: 10px;
+}
+
+#header_bottom
+{
+width: 100%;
+background-color: #000;
+height: 1px;
+}
+
+#header_menu
+{
+padding-left: 10px;
+height: 18px;
+}
+
+#header_menu ul
+{
+list-style: none;
+margin: 0px;
+padding: 0px;
+}
+
+#header_menu li
+{
+float: left;
+padding-left: 5px;
+padding-right: 5px;
+background-color: #ccc;
+margin-right: 2px;
+}
+
+#header_menu li.selected
+{
+float: left;
+background-color: #000;
+}
+
+#header_menu li a
+{
+display: block;
+color: #000;
+text-decoration: none;
+height: 16px;
+line-height: 16px;
+padding-bottom: 2px;
+}
+
+#header_menu li.selected a
+{
+display: block;
+color: #fff;
+text-decoration: none;
+height: 16px;
+line-height: 16px;
+}
+
+#container
+{
+float: left;
+width: 100%;
+}
+
+#left {
+	width: 180px;
+	float: left;
+}
+
+#right {
+	float: left;
+	background-color: #fff;
+	margin-right:20px;
+	width: 800px;
+}
+
+#page_title
+{
+background-color: #069;
+margin-bottom: 15px;
+}
+
+#title_text
+{
+height: 36px;
+line-height: 36px;
+color: #fff;
+font-size: 18px;
+margin-left: 200px;
+}
+
+#main
+{
+padding-bottom: 100px;
+}
+
+.highlight {
+	color: #0066CC;
+}
+
+.max td {
+	color: #0066CC;
+}
+
+#related_articles ul
+{
+list-style: none;
+margin: 0px;
+padding: 0px;
+margin-bottom: 10px;
+}
+
+#related_articles li
+{
+margin-bottom: 5px;
+margin-top: 5px;
+}
+
+#related_articles li img
+{
+vertical-align: middle;
+border: 0px;
+}
+
+.chinese
+{
+font-size: 18px;
+}
+
+.book {
+list-style: none;
+}
+
+ul.book li {
+padding-top: 5px;
+padding-bottom: 5px;
+}
+
+
+fieldset {
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+}
+
+legend {
+	font-weight: bold;
+	margin-left: 5px;
+	padding: 3px;
+}
+
+textarea {
+	width: 500px;
+	height: 300px;
+}
+
+form ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+form ul li {
+	padding: 3px;
+}
+
+label {
+	float: left;
+	width: 120px;
+	margin-right: 10px;
+	text-align: right;
+}
+
+form label em {
+	color: #f00;
+}
+
+form .guidetext {
+	margin-left: 130px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	color: #069;
+}
+
+.pagination {
+	margin:15px 0 15px 0;
+	width:100%;
+	clear:both;
+}
+
+.pagination ul {
+	display:inline;
+}
+
+.pagination li {
+	display:inline;
+	margin-right:5px;
+}
+
+.pagination a:link, .pagination a:visited {
+	padding:3px 6px 3px 6px;
+	border:1px solid #09c;
+}
+
+.pagination .prevnext a:link, .pagination .prevnext a:visited {
+	border:0;
+	padding:0;
+}
+
+.pagination .current {
+	background-color:#ddd;
+	color:#000;
+	font-weight: bold;
+}

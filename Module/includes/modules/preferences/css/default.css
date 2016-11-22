@@ -1,0 +1,73 @@
+#headerLayer{
+	height:100px;
+	background-color:#f1f1f1;
+	position:relative;
+}
+
+#headerLayer span{
+	position:absolute;
+	left:20px;
+	top: 10px;
+	font-size:18px;
+	color:#00a6eb;
+}
+
+div#moduleTabs{
+	position:absolute;
+	height:21px;
+	bottom:0px;
+	background-image:url(../img/menu-bg.gif);
+	width:100%;
+	padding-left:20px;
+}
+
+div#moduleTabs a{
+	display:block;
+	float:left;
+	width:116px;
+	height:21px;
+	line-height:21px;
+	text-align:center;
+	background-image:url(../img/tab-bg.gif);
+	font-size:11px;
+	text-decoration:none;
+	color:#000;
+	margin-left:-1px;
+}
+
+div#moduleTabs a.activeItem{
+	background-image:url(../img/tab-bg-active.png);
+}
+
+table{
+	background-color:#f2f2f2;
+	width:100%;
+}
+
+td{
+	border-bottom:1px solid #fff;
+	padding:5px;
+	text-align:left;
+	vertical-align:top;	
+	padding-left:20px;
+}
+
+thead td{
+	padding-top:20px;
+	background-color:#fff;
+	font-size:14px;	
+	font-weight:bold;
+}
+
+tfoot td{
+	background-color:#fff;
+	border-bottom:1px solid #f2f2f2;
+}
+
+textarea.text{
+	height:100px;
+	width:200px;	
+}
+input.text{
+	width:200px;
+}

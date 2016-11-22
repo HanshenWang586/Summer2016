@@ -1,0 +1,15 @@
+User-agent: *
+Allow: *
+Crawl-Delay: 8
+Disallow: /test/
+Disallow: /en/calendar/post/
+Disallow: /en/forums/post/
+Disallow: /en/classifieds/post/
+Disallow: /en/users/pm_compose/
+Disallow: /en/users/pm_message/
+Disallow: /en/users/pm_inbox/
+Disallow: /en/users/pm_dashboard/
+Sitemap: http://www.gokunming.com/news_sitemap.php
+
+User-agent: Spinn3r
+Disallow: /

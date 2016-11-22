@@ -1,0 +1,4 @@
+index.php|List Photos
+form_upload.php|Upload Photo
+tags.php|Tags
+albums.php|Albums

@@ -1,0 +1,3 @@
+$(function() {
+	$('#replyForm textarea').focus();
+});

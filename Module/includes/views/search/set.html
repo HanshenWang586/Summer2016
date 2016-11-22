@@ -1,0 +1,10 @@
+<div class="results_control">
+	<ul>
+		<li><a href="javascript:void(null);"><img src="/images/<?php echo $this->sitename; ?>/events_back_enabled.png" onclick="paginateResults('<?php echo $this->ss; ?>', '<?php echo $this->type; ?>', <?php echo $this->prev_page; ?>);" /></a></li>
+		<li class="page">Page <?php echo $this->page; ?></li>
+		<li><a href="javascript:void(null);"><img src="/images/<?php echo $this->sitename; ?>/events_forward_enabled.png" onclick="paginateResults('<?php echo $this->ss; ?>', '<?php echo $this->type; ?>', <?php echo $this->next_page; ?>);" /></a></li>
+	</ul>
+</div>
+
+<h2><?php echo $this->title; ?></h2>
+<?php echo $this->results; ?>

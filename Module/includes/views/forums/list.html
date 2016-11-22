@@ -1,0 +1,7 @@
+<div id="forums">
+	<h1><?=$this->breadcrumb ? $this->breadcrumb : $this->page_title;?></h1>
+	<div class="create"><a href="/en/forums/form_thread/<?php echo $this->board_id;?>/">Start Thread</a></div>
+	<div class="pagination"><?=$this->pagination;?></div>
+	<div id="forumList"><?=$this->threads;?></div>
+	<div class="pagination"><?=$this->pagination;?></div>
+</div>

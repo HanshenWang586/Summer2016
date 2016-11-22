@@ -1,0 +1,33 @@
+<!-- JiaThis Button BEGIN -->
+<div>
+	<ul class="social">
+		<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?<?=http_build_query(array('u' => $this->url))?>" class="tooltip"><img><span class="icon icon-facebook"> </span><span class="tooltip-text"><?=$this->lang('FACEBOOK');?></span></a></li>
+		<li><a target="_blank" href="http://reddit.com/submit?<?=http_build_query(array('title' => strip_tags($this->title), 'url' => $this->url))?>" class="tooltip"><span class="icon icon-reddit"> </span><span class="tooltip-text"><?=$this->lang('REDDIT');?></span></a></li>
+		<li><a class="jiathis_button_linkedin tooltip"><span class="icon icon-linkedin"> </span><span class="tooltip-text"><?=$this->lang('LINKED_IN');?></span></a></li>
+		<li><a class="jiathis_button_twitter tooltip tw:via="GoKunming""><span class="icon icon-twitter"> </span><span class="tooltip-text"><?=$this->lang('TWITTER');?></span></a></li>
+		<li><a class="jiathis_button_googleplus tooltip"><span class="icon icon-googleplus"> </span><span class="tooltip-text"><?=$this->lang('GOOGLE_PLUS');?></span></a></li>
+		<li><a class="jiathis_button_tsina tooltip"><span class="icon icon-weibo"> </span><span class="tooltip-text"><?=$this->lang('SINA_WEIBO');?></span></a></li>
+		<li><a class="jiathis_button_qzone tooltip"><span class="icon icon-qzone"> </span><span class="tooltip-text"><?=$this->lang('QZONE');?></span></a></li>
+	</ul>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	title: <?=json_encode(strip_tags($this->title));?>,
+	pic: '<?=$this->img?>',
+	summary: <?=json_encode(strip_tags($this->summary));?>,
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+<script type="text/javascript">
+	function downloadJSAtOnload() {
+		var element = document.createElement("script");
+		element.src = "http://v3.jiathis.com/code/jia.js?uid=1894947";
+		document.body.appendChild(element);
+	}
+	if (window.addEventListener) window.addEventListener("load", downloadJSAtOnload, false);
+	else if (window.attachEvent) window.attachEvent("onload", downloadJSAtOnload);
+	else window.onload = downloadJSAtOnload;
+</script>
+<!-- JiaThis Button END -->

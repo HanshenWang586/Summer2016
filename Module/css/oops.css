@@ -1,0 +1,37 @@
+body {
+	font-weight: 300;
+	font-family: 'Raleway', 'Raleway-Light', 'Open-Sans', 'Open Sans', 'Lato', 'Roboto-Thin', 'Roboto Thin', Helvetica, "Trebuchet MS", Arial, sans-serif!important;
+	font-size: 20px;
+	color: #777;
+	text-align: center;
+	padding: 60px 20px 10px;
+}
+
+.container { min-width: 260px; }
+
+p { max-width: 600px; line-height: 1.5em; margin: 0.5em auto 1em; }
+
+ul { list-style: none; padding: 0; margin: 0; }
+li, li a {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+	*display: inline;
+}
+ul { margin-top: 30px; }
+li a {
+	border: 5px solid #0e76a8; color: #0e76a8; background-color: #f6f6f6; margin: 0 10px 15px; border-radius: 200px; position: relative; transition: all 0.3s ease-out;
+}
+li a .icon { font-size: 40px; padding: 0; margin: 0; width: 70px; height: 70px; line-height: 70px; transition: font-size 0.2s ease-out; }
+
+.facebook { border-color: #3B5998; color: #3B5998; }
+.twitter { border-color: #4099FF; color: #4099FF; }
+.googleplus { border-color: #d34836; color: #d34836; }
+.linkedin { border-color: #0e76a8; color: #0e76a8; }
+.weibo { border-color: #eb182c; color: #eb182c; }
+
+li a:hover { padding: 15px; margin: -15px -5px 0; color: #666; border-color: #666; background-color: white; }
+li a:hover .icon { font-size: 55px; transition: font-size 0.2s ease-out; }
+
+li a .caption { display: none; position: absolute; top: 100%; padding-top: 10px; color: #777; font-size: 14px; left: -20px; width: 110px; }

@@ -1,0 +1,40 @@
+<header class="articlePageHeader" id="contentHeader">
+	<h1><a href="<?=$this->url(array('m' => 'blog'))?>">GoKunming Articles</a></h1>
+	<?=$this->extra;?>
+</header>
+<article itemscope itemtype="http://schema.org/Article" id="article">
+	<meta itemprop="url" content="<?=$this->absolute_url;?>">
+	<h1 class="headline" itemprop="headline name"><?=$this->title;?></h1>
+	<p class="meta">
+		This article was posted by 
+		<span class="vcard"><?=$this->author_linked;?></span>
+		in <? printf('<a itemprop="articleSection" href="/en/blog/category/%s/">%s</a>', strtolower($this->category), $this->category);?>
+		and published <time class="nojs" pubdate datetime="<?=date('c', $this->date_publish);?>" content="<?=date('c', $this->date_publish);?>" itemprop="datePublished"><?=date('F j, Y', $this->date_publish);?></time>
+	</p>
+	<section id="articleBody" itemprop="articleBody">
+		<?=$this->body;?>
+		<small>&copy; Copyright 2005-<?=date('Y');?> GoKunming.com all rights reserved. This material may not be republished, rewritten or redistributed without permission.</small>
+		<? if ($this->tags) { ?>
+		<div class="tags">
+			<h2><?=$this->lang('TAGS', 'blog');?></h2>
+			<?=$this->tags;?>
+		</div>
+		<? } ?>
+	</section>
+	<!-- AddThis Button BEGIN -->
+	<section id="shareArticle">
+		<h2><?=$this->lang('SHARE_ARTICLE', 'blog');?></h2>
+		<?=$this->social;?>
+	</section>
+	<? if ($this->related_articles) { ?>
+	<section class="horizontalSlider" id="related">
+		<h1><?=$this->lang('RELATED_ARTICLES', 'blog');?></h1>
+		<div class="innerWrapper"><?=$this->related_articles; ?></div>
+	</section>
+	<? } ?>
+	<section id="comments">
+		<h1><?=$this->lang('COMMENTS', 'blog');?></h1>
+		<?php echo $this->comments; ?>
+		<?php echo $this->comments_form; ?>
+	</section>
+</article>

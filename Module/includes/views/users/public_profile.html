@@ -1,0 +1,52 @@
+<h1 class="dark"><?=$this->title?></h1>
+<div id="controls">
+	<? if ($this->user->getUserID() != $GLOBALS['user']->getUserID()) { ;?>
+		<a class="icon-link" href="<?=$this->url(array('m' => 'users', 'view' => 'pm_compose', 'to_id' => $this->user->getUserID()))?>"><span class="icon icon-envelope-3"> </span> <?=$this->lang('SEND_MESSAGE', 'UsersModel')?></a>
+	<? } else { ?>
+		<a class="icon-link" href="<?=$this->url(array('m' => 'users', 'view' => 'dashboard'))?>"><span class="icon icon-arrow-left"> </span> <?=$this->lang('BACK_TO_DASHBOARD', 'UsersModel')?></a>
+	<? } ?>
+</div>
+<div class="whiteBox">
+	<small><?=$this->lang('USER_INFO', 'UsersModel')?></small>
+	<ul class="infoList">
+		<li><span class="label"><?=$this->lang('REGISTERED', 'UsersModel')?></span><span class="value"><?=$this->user->getDateRegistered()?></span></li>
+		<li><span class="label"><?=$this->lang('REGION', 'UsersModel')?></span><span class="value"><?=$this->user->getRegion()?></span></li>
+		<li><span class="label"><?=$this->lang('VERIFIED', 'UsersModel')?></span><span class="value"><?= $this->user->verified ? '<span title="This user\'s email address has been verified" class="green info">Yes</span>' : '<span title="This user\'s email address has not been verified yet" class="red info">No</span>'?></span></li>
+		<li><span class="label"><?=$this->lang('REGISTERED', 'UsersModel')?></span><span class="value"><?=$this->user->getDateRegistered()?></span></li>
+</div>
+<ul class="tabCaptions">
+	<? $url = $this->url(false, false, true); ?>
+	<? if ($this->forumPosts) { ?><li><a class="active" href="<?=$url?>#user_forums"><?=$this->lang('TAB_FORUMPOSTS', 'UsersModel');?></a></li><? } ?>
+	<? if ($this->classifieds) { ?><li><a href="<?=$url?>#user_classifieds"><?=$this->lang('TAB_CLASSIFIEDS', 'UsersModel');?></a></li><? } ?>
+	<? if ($this->comments) { ?><li><a href="<?=$url?>#user_comments"><?=$this->lang('TAB_COMMENTS', 'UsersModel');?></a></li><? } ?>
+	<? if ($this->reviews) { ?><li><a href="<?=$url?>#user_reviews"><?=$this->lang('TAB_REVIEWS', 'UsersModel');?></a></li><? } ?>
+	<? if ($this->events) { ?><li><a href="<?=$url?>#user_events"><?=$this->lang('TAB_EVENTS', 'UsersModel');?></a></li><? } ?>
+</ul>
+<div class="tabs">
+	<? if ($this->forumPosts) { ?>
+	<div class="tab active" id="user_forums">
+		<h2><?=$this->lang('TAB_FORUMPOSTS', 'UsersModel');?></h2>
+		<?=$this->forumPosts;?>
+	</div>
+	<? } if ($this->classifieds) { ?>
+	<div class="tab classifiedsList userContentList" id="user_classifieds">
+		<h2><?=$this->lang('TAB_CLASSIFIEDS', 'UsersModel');?></h2>
+		<?=$this->classifieds;?>
+	</div>
+	<? }  if ($this->comments) { ?>
+	<div class="tab" id="user_comments">
+		<h2><?=$this->lang('TAB_COMMENTS', 'UsersModel');?></h2>
+		<?=$this->comments;?>
+	</div>
+	<? }  if ($this->reviews) { ?>
+	<div class="tab userContentList reviewsList" id="user_reviews">
+		<h2><?=$this->lang('TAB_REVIEWS', 'UsersModel');?></h2>
+		<?=$this->reviews;?>
+	</div>
+	<? }  if ($this->events) { ?>
+	<div class="tab" id="user_events">
+		<h2><?=$this->lang('TAB_EVENTS', 'UsersModel');?></h2>
+		<div class="row"><?=$this->events;?></div>
+	</div>
+	<? } ?>
+</div>

@@ -1,0 +1,18 @@
+<header id="contentHeader">
+	<h1><a href="<?=$this->allForumsURL?>"><?=$this->topTitle?></a></h1>
+	<?=$this->tabs;?>
+</header>
+<section id="forumThread">	
+	<div id="controls">
+		<? if ($GLOBALS['user']->isLoggedIn()) { ?>
+		<a class="icon-link" href="<?=$this->url(array('m' => 'forums', 'view' => 'subscribe', 'id' => $this->thread_id))?>"><span class="icon icon-mail"> </span><?=$this->lang($this->subscribed ? 'UNSUBSCRIBE' : 'SUBSCRIBE', 'ForumsModel')?></a>
+		<? } else { ?>
+		<a class="icon-link" href="<?=$this->url(array('m' => 'users', 'view' => 'login'))?>"><span class="icon icon-login"> </span><?=$this->lang('LOGIN_TO_SUBSCRIBE', 'ForumsModel')?></a>
+		<? } ?>
+		<a class="icon-link" href="<?=$this->url(array('m' => 'forums', 'view' => 'thread_rss', 'id' => $this->thread_id))?>"><span class="icon icon-feed"> </span><?=$this->lang('RSS_FEED')?></a>
+	</div>
+	<h1><a href="<?=$this->url?>"><?=$this->title?></a></h1>
+	<?=$this->posts;?>
+	<?=$this->pagination;?>
+	<?=$this->form;?>
+</section>

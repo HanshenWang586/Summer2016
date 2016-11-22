@@ -1,0 +1,6 @@
+<div class="span4 <?=$this->class;?>"><div class="forum_summary">
+	<h2><a href="<?php echo $this->url; ?>"><?php echo $this->name; ?></a></h2>
+	<p><?php echo $this->threads_count; ?> threads, <?php echo $this->posts_count; ?> posts • <a href="/en/forums/form_thread/<?php echo $this->board_id; ?>/">Start Thread</a></p>
+	<?php echo $this->list; ?>
+	<a href="<?=$this->url; ?>" class="arrow_right">More</a>
+</div></div>

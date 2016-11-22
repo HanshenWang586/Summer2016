@@ -1,0 +1,19 @@
+<div class="listingsBox">
+	<ul class="tabCaptions">
+		<? $url = $this->url(false, false, true); ?>
+		<li><a href="<?=$url?>#tab_latest_reviews"><?=$this->lang('TAB_LATEST_REVIEWS', 'ListingsModel');?></a></li>
+		<li><a href="<?=$url?>#tab_recently_added"><?=$this->lang('TAB_RECENTLY_ADDDED', 'ListingsModel');?></a></li>
+		<li><a href="<?=$url?>#tab_top_rated"><?=$this->lang('TAB_TOP_RATED', 'ListingsModel');?></a></li>
+	</ul>
+	<div class="tabs">
+		<div class="tab active" id="tab_latest_reviews">
+			<?=$this->latestReviews?>
+		</div>
+		<div class="tab" id="tab_recently_added">
+			<?=$this->recent?>
+		</div>
+		<div class="tab" id="tab_top_rated">
+			<?=$this->topRated?>
+		</div>
+	</div>
+</div>

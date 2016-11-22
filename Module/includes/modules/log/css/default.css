@@ -1,0 +1,7 @@
+.logListTitle { background: white; font-size: 12px; color: #457f99; font-weight: bold; padding: 5px 10px 2px; margin-left: 10px; float: left; position: relative; z-index: 2; margin-bottom: -1px; border-top: 1px solid #D8D8D8; border-right: 1px solid #D8D8D8; border-left: 1px solid #D8D8D8; }
+.logListItems { display: block; background: white; border: 1px solid #D8D8D8; clear: both; margin-bottom: 10px; }
+	.logListItem { padding: 2px 10px; margin: 5px 0; }
+	
+.logUserError {  }
+.logUserWarning {  }
+.logUserMessage {  }

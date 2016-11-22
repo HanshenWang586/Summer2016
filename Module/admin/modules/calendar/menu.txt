@@ -1,0 +1,5 @@
+index.php|Week View
+list.php|List All
+form_item.php|Add Calendar Item
+recurring.php|Recurring
+form_recurring.php|Add Recurring

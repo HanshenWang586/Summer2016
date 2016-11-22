@@ -1,0 +1,118 @@
+<section id="event">
+	<h1 class="dark"><a href="<?=$this->url(array('m' => 'calendar'))?>"><?=$this->title;?></a></h1>
+	<?=$this->event['status']?>
+	<div id="controls">
+		<? if ($this->isAdmin or $this->isOwner) { ?>
+			<a class="button" href="<?=$this->url(array('m' => 'calendar', 'view' => 'edit', 'id' => $this->event['calendar_id']));?>"><span class="icon icon-edit"></span><?=$this->lang('LINK_EDIT', 'CalendarModel');?></a>
+			<a class="button" href="<?=$this->url(array('m' => 'calendar', 'view' => 'poster', 'id' => $this->event['calendar_id']));?>"><span class="icon icon-picture"></span><?=$this->lang('LINK_EDIT_POSTER', 'CalendarModel');?></a>
+			<? if ($this->event['live'] == 1) { ?>
+			<a class="button" href="<?=$this->url(array('view' => 'delete'), false, true);?>"><span class="icon icon-trash"></span><?=$this->lang('LINK_DELETE', 'CalendarModel');?></a>
+			<? } else { ?>
+			<a class="button" href="<?=$this->url(array('view' => 'undelete'), false, true);?>"><span class="icon icon-flag"></span><?=$this->lang('LINK_UNDELETE', 'CalendarModel');?></a>
+			<? } ?>
+		<? } ?>
+		<? if ($this->isAdmin) {
+			if ($this->event['approved'] < 1) { ?>
+			<a class="button" href="<?=$this->url(array('view' => 'approve'), false, true);?>"><span class="icon icon-checkmark"></span><?=$this->lang('LINK_APPROVE', 'CalendarModel');?></a>
+			<? } if ($this->event['approved'] > -1) { ?>
+			<a class="button" href="<?=$this->url(array('view' => 'reject'), false, true);?>"><span class="icon icon-cancel"></span><?=$this->lang('LINK_REJECT', 'CalendarModel');?></a>
+			<? } ?>
+		<? } ?>
+	</div>
+	<article itemscope itemtype="http://schema.org/Event" class="row">
+		<div class="span5">
+			<? if ($this->event['days']) printf('<div class="days">%s</div>', $this->event['date_formatted']); else { ?>
+			<a href="<?=$this->url(array('m' => 'calendar', 'view' => 'date', 'id' => date('Y-m-d', $this->event['datetime'])));?>">
+				<span class="startDate circleDate" itemprop="startDate" content="<?=$this->event['iso_date']?>">
+					<span class="day"><?=date('j', $this->event['datetime'])?></span><br>
+					<span class="month"><?=date('F', $this->event['datetime'])?></span><br>
+					<span class="weekday"><?=date('D', $this->event['datetime'])?></span><br>
+				</span>
+			</a>
+			<? } ?>
+			<? if ($this->event['datetime_end']) { ?>
+			<a href="<?=$this->url(array('m' => 'calendar', 'view' => 'date', 'id' => date('Y-m-d', $this->event['datetime_end'])));?>">
+				<span class="endDate circleDate" itemprop="endDate" content="<?=$this->event['iso_end_date']?>">
+					<span class="day"><?=date('j', $this->event['datetime_end'])?></span><br>
+					<span class="month"><?=date('F', $this->event['datetime_end'])?></span><br>
+					<span class="weekday"><?=date('D', $this->event['datetime_end'])?></span><br>
+				</span>
+			</a>
+			<? } ?>
+			<?=$this->event['category_formatted']?>
+			<span class="topInfo">
+				<? if ($this->event['starting_time_formatted']) { ?>
+					<span class="time"><?=$this->event['starting_time_formatted']?></span>
+				<? 
+					if ($this->event['price_formatted']) echo '•';
+				} if ($this->event['price_formatted']) { ?>
+				<span class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+					<meta itemprop="priceCurrency" content="CNY">
+					<span itemprop="price"><?=$this->event['price_formatted']?></span> <?=$this->event['currency']?>
+				</span>
+				<? } ?>
+			</span>
+			<h1 class="title" itemprop="name"><a href="<?=$this->event['url'];?>"><?=$this->event['title']?></a></h1>
+			<div itemprop="description" class="description whiteBox">
+				<small><?=$this->lang('BOX_DESCRIPTION', 'CalendarModel')?></small>
+				<?=$this->event['description']?>
+			</div>
+			<div itemscope itemprop="location" itemtype="http://schema.org/localBusiness">
+				<a itemprop="url" href="<?=$this->event['listing_url']?>" class="locationBox whiteBox">
+					<small><?=$this->lang('BOX_LOCATION', 'CalendarModel')?></small>
+					<h2 class="venue" itemprop="name"><?=$this->event['venue']?></h2>
+					<span class="location">
+						<span class="icon icon-map-pin-fill"> </span>
+						<span class="street" itemprop="streetAddress"><?=$this->event['address']?></span>
+						<meta itemprop="addressLocality" content="<?=$this->event['city']?>">
+						<meta itemprop="addressRegion" content="<?=$this->event['province']?>">
+						<meta itemprop="addressCountry" content="China">
+					</span>
+					<? if ($this->event['phone_formatted']) { ?>
+					<span class="phone"><span class="icon icon-phone"> </span><span itemprop="telephone"><?=$this->event['phone_formatted']?></span></span>
+					<? } ?>
+				</a>
+			</div>
+			<? if ($this->poster) { ?>
+			<div class="sharing whiteBox">
+				<small><?=$this->lang('BOX_SHARING', 'CalendarModel')?></small>
+				<?=$this->social?>
+			</div>
+			<? } ?>
+			<? if ($this->userAdded or $this->userUpdated) { ?>
+			<div class="usersBox whiteBox">
+				<small><?=$this->lang('BOX_USERS', 'ListingModel')?></small>
+				<? if ($this->userAdded) printf('<div>%s %s, %s</div>', $this->lang('ADDED_BY', 'ListingsModel'), $this->userAdded->getLinkedNickname(), $this->timeAdded); ?>
+				<? if ($this->userUpdated and $this->timeUpdated != $this->timeAdded) printf('<div>%s %s, %s</div>', $this->lang('UPDATED_BY', 'ListingsModel'), $this->userUpdated->getLinkedNickname(), $this->timeUpdated); ?>
+			</div>
+			<? } ?>
+		</div>
+		<div class="span3">
+			<? if ($this->poster) { ?>
+			<a href="<?=$this->poster?>" itemprop="image" class="img lightbox"><img itemprop="thumbnail" class="poster" alt="Poster" src="<?=$this->poster_thumb;?>"></a>
+			<? } ?> 
+			<? if ($this->qrcode) { ?>
+			<div class="sharing whiteBox">
+				<small><?=$this->lang('BOX_QRCODE')?></small>
+				<p>Scan the QR Code with WeChat and share on your <em>Moments</em>.</p>
+				<img class="qrcode" src="<?=$this->qrcode?>" alt="QR Code">
+			</div>
+			<? } ?>
+			<? if (!$this->poster) { ?>
+			<div class="sharing whiteBox">
+				<small><?=$this->lang('BOX_SHARING', 'CalendarModel')?></small>
+				<?=$this->social?>
+			</div>
+			<? } ?>
+		</div>
+	</article>
+	<?=$this->map;?>
+	<? if ($this->related) { ?>
+	<section class="horizontalSlider" id="sliderEvents">
+		<h1><?=$this->lang('RELATED_EVENTS', 'CalendarModel');?></h1>
+		<div class="innerWrapper">
+			<?=$this->related;?>
+		</div>
+	</section>
+	<? } ?>
+</section>

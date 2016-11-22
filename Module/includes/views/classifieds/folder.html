@@ -1,0 +1,15 @@
+<h1 class="dark"><?=$this->name;?></h1>
+<div id="controls">
+	<a class="button" href="<?=$this->url(array('m' => 'classifieds', 'view' => 'post'));?>"><span class="icon icon-edit"> </span> <?=$this->lang('POST_NEW', 'ClassifiedsModel');?></a>
+</div>
+<form id="searchBlogForm" class="searchForm<? echo $GLOBALS['model']->args['search'] ? ' hasSearchValue' : '';?>" method="get" action="<?=$this->url(false, false, true);?>">
+	<div>
+		<?=$GLOBALS['model']->tool('tag')->input(array('attr' => array('type' => 'search', 'class' => 'text', 'placeholder' => $this->lang('SEARCH', 'ClassifiedsModel', false, true), 'id' => 'inputQ', 'name' => 'search', 'value' => $GLOBALS['model']->args['search'])));?>
+		<input autocomplete="off" class="searchSubmit" type="submit" value="<?=$this->lang('SEARCH_BUTTON_UPDATE', 'ClassifiedsModel', false, true);?>">
+		<a href="<?=$this->url(array('page' => false, 'search' => false), false, true);?>" class="icon icon-cancel searchCancel"><span><?=$this->lang('SEARCH_BUTTON_CANCEL', 'ClassifiedsModel')?></span></a>
+	</div>
+</form>
+<div <?= !$this->body_id ? 'class="userContentList classifiedsList"' : sprintf('id="%s"', $this->body_id)?>>
+	<? if ($this->description) printf('<p>%s</p>', $this->description); ?>
+	<?=$this->content . $this->pagination; ?>
+</div>

@@ -1,0 +1,38 @@
+<header id="contentHeader">
+	<h1><?=$this->title;?></h1>
+	<ul class="flyoutMenu tabList" id="contentMenu">
+		<li id="cityList" class="interactive">
+			<span class="caption"><?=$this->lang('SELECT_CITY', 'ListingsModel')?></span>
+			<span class="flyout">
+				<?=$this->cities;?>
+			</span>
+		</li>
+		<li id="categoryList" class="interactive">
+			<span class="caption"><?=$this->lang('SELECT_CATEGORY', 'ListingsModel')?></span>
+			<span class="flyout">
+				<ul>
+					<?php foreach($this->categories as $cat) { ?>
+						<li><a href="<?=sprintf('/%s/listings/city/%s/%s/', $GLOBALS['model']->lang, strtolower($this->city), $cat['category_code'])?>"><?=$cat['category_' . $GLOBALS['model']->lang]?></a></li>
+					<? } ?>
+				</ul>
+			</span>
+		</li>
+	</ul>
+</header>
+<div id="controls">
+	<? if ($GLOBALS['user']->getPower()) { ?>
+	<a class="button" href="<?=$this->url(array('m' => 'listings', 'view' => 'add', 'city' => strtolower($this->city)));?>"><span class="icon icon-edit"></span><?=$this->lang('LINK_NEW', 'ListingsModel');?></a>
+	<? } ?>
+	<?=$this->power; ?>
+</div>
+<form id="searchListingsForm" class="searchForm<? echo $GLOBALS['model']->args['search'] ? ' hasSearchValue' : '';?>" method="get" action="<?=$this->url(false, false, true);?>">
+	<div>
+		<?=$GLOBALS['model']->tool('tag')->input(array('attr' => array('type' => 'search', 'class' => 'text', 'value' => $this->q, 'placeholder' => $this->lang('SEARCH_PLACEHOLDER', 'ListingsModel', false, true), 'id' => 'inputQ', 'name' => 'search', 'value' => $GLOBALS['model']->args['search'])));?>
+		<input class="searchSubmit" type="submit" value="<?=$this->lang('SEARCH_BUTTON_UPDATE', 'ListingsModel', false, true);?>">
+		<a href="<?=$this->url(array('page' => false, 'search' => false), false, true);?>" class="icon icon-cancel searchCancel"><span><?=$this->lang('SEARCH_BUTTON_CANCEL', 'ListingsModel')?></span></a>
+	</div>
+</form>
+<?=$this->map;?>
+<?=$this->searchInfo;?>
+<div id="listings" class="itemList"><?=$this->items;?></div>
+<div class="pagination"><?=$this->pagination;?></div>

@@ -1,0 +1,12 @@
+<div id="forums">
+	<h1>Forums</h1>
+	
+	<p><?php echo $this->total_threads; ?> total threads, <?php echo $this->total_posts; ?> total posts</p>
+	
+	<p>Welcome to the <?php echo $this->site_name; ?> online forum. Browse by section below, or <a href="/en/forums/all/">click here</a> to view all.</p>
+	<p>Anyone can view the forums, but to post messages, you must be a registered member of <?php echo $this->site_name; ?>. Registration is free of charge, and you can register by <a href="/en/users/register/">clicking here</a>.</p>
+	
+	<div class="row">
+		<?=$this->boards;?>
+	</div>
+</div>

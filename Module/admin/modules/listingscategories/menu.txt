@@ -1,0 +1,2 @@
+index.php|List Categories
+form_category.php|Add a Category

@@ -1,0 +1,148 @@
+@charset "utf-8";
+/* CSS Document */
+
+#contacts_left {
+float: left;
+width: 200px;
+}
+
+#contacts_right {
+margin-left: 20px;
+width: 400px;
+float: left;
+}
+
+#search_contacts
+{
+width: 200px;
+margin-bottom: 20px;
+}
+
+#search_notes
+{
+width: 200px;
+margin-bottom: 20px;
+}
+
+#create_contact
+{
+width: 200px;
+margin-bottom: 20px;
+}
+
+#callbacks
+{
+width: 200px;
+margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+#contact
+{
+width: 400px;
+float: left;
+}
+
+
+#results
+{
+}
+
+#results td
+{
+padding: 3px;
+border-bottom: 1px dotted #ccc;
+}
+
+#main h1
+{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 17px;
+font-weight: bold;
+}
+
+#coords
+{
+margin-top: 20px;
+width: 400px;
+}
+
+#coords h1
+{
+border-bottom: 1px solid #555;
+padding-bottom: 3px;
+}
+
+#coords table
+{
+width: 100%;
+border-collapse: collapse;
+}
+
+#coords td
+{
+padding-top: 3px;
+padding-bottom: 3px;
+border-bottom: 1px dotted #555;
+}
+
+#coords td.last
+{
+padding-top: 3px;
+padding-bottom: 3px;
+border-bottom: 0px;
+}
+
+#associations
+{
+margin-top: 20px;
+}
+
+#notes
+{
+margin-top: 20px;
+}
+
+#notes h1
+{
+border-bottom: 1px solid #555;
+padding-bottom: 3px;
+}
+
+#notes table
+{
+width: 100%;
+}
+
+#notes td
+{
+padding: 0px;
+padding-top: 3px;
+padding-bottom: 3px;
+border-bottom: 1px dotted #555;
+}
+
+#loading
+{
+
+}
+
+#names table
+{
+width: 100%;
+border-collapse:collapse;
+}
+
+#names td
+{
+padding: 0px;
+padding-top: 2px;
+padding-bottom: 2px;
+}

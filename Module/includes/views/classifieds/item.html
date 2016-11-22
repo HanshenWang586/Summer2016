@@ -1,0 +1,16 @@
+<article>
+	<header>
+		<?=$this->name?>
+		<?=$this->date?>
+		<?=$this->folder_path; ?>
+		<?=$this->message; ?>
+	</header>
+	<div class="body">
+		<h1><a href="<?=$this->url; ?>"><?=$this->title; ?></a></h1>
+		<?=$this->content; ?>
+	</div>
+	<span class="controls">
+		<?=$this->controls; ?>
+		<?=$this->respond;?>
+	</span>
+</article>

@@ -1,0 +1,134 @@
+<?php
+class ListingsList
+{
+var $city_ids = array(1);
+
+	public function getSquashList(&$pager) {
+		$rs = $pager->setSQL("SELECT *
+							 FROM listings_data
+							 WHERE city_id = 1
+							 AND status = 1
+							 ORDER BY ts_squashed ASC");
+
+		$content .= "<table class=\"gen_table\" cellspacing=\"1\">
+		<tr><td><b>Name</b></td>
+			<td><b>Address</b></td>
+			<td><b>Contact</b></td>
+			<td><b>Description</b></td>
+			<td></td></tr>";
+
+		while ($row = $rs->getRow()) {
+			$li = new ListingsItem($row['listing_id']);
+			$content .= "
+				<tr valign=\"top\">
+					<td>
+						{$row['name_en']}<br />
+						<span class=\"chinese\">{$row['name_zh']}</span>
+					</td>
+					<td>{$row['address_en']}<br />
+					<span class=\"chinese\">{$row['address_zh']}</span>
+				</td>
+				<td>
+					Phone:<br />{$row['phone']}<br /><br />
+					Fax:<br />{$row['fax']}<br /><br />
+					Web:<br />{$row['url']}
+				</td>
+				<td>".nl2br($row['description'])."<br /><br />".$li->getCategoriesList()."</td>
+				<td>
+					<a href=\"".str_replace('/item/', '/form/', $li->getURL())."\" target=\"_blank\">Edit</a><br />
+					<a href=\"squash.php?listing_id={$row['listing_id']}&page=".$pager->getCurrentPage()."\">Squash</a><br />
+					<a href=\"delete_item.php?listing_id={$row['listing_id']}&return=squash&page=".$pager->getCurrentPage()."\" onclick=\"return conf_del();\">Remove</a><br />
+				</td>
+			</tr>";
+		}
+
+		$content .= "</table>";
+
+		return $content;
+	}
+
+	function ListingsList($user='') {
+		$this->user = $user;
+	}
+
+	function getTitle() {
+		return $this->title;
+	}
+
+	function setCategoryID($category_id) {
+		$this->category_id = $category_id;
+	}
+
+	function setCityID($city_id) {
+		$this->city_id = $city_id;
+	}
+
+	public function getUnorderedList() {
+		global $user;
+
+		$reviews = array();
+		$db = new DatabaseQuery;
+		$rs = $db->execute('SELECT listing_id
+							FROM listings_data
+							WHERE status = 1
+							AND city_id = '.$this->city_id.'
+							ORDER BY ts_added DESC
+							LIMIT 10');
+
+		while ($row = $rs->getRow()) {
+			$item = new ListingsItem($row['listing_id']);
+			$additions[] = '<a href="'.$item->getURL().'">'.$item->getName().'</a>';
+		}
+
+		if (count($additions)) {
+			return '<h2>Latest Additions</h2>'.
+			HTMLHelper::wrapArrayInUl($additions);
+		}
+	}
+	
+	public function getListingsSQL($city_id = 0, $category_id = 0, $search = false, $orderBy = false, $order = false) {
+		global $user, $model;
+		if ($category_id !== false) {
+			$category = new Category($category_id);
+			// and create array of all sub-categories AND that category
+			$category_ids = $category->getAllSubCategoryIDs();
+		}
+		
+		if ($search) $search = $model->db()->escape_clause($search);
+		
+		$sql =	'SELECT DISTINCT d.*,
+						phone_code,
+						city_en,
+						city_zh
+				FROM listings_data d
+				LEFT JOIN listings_i2c i2c ON (i2c.listing_id = d.listing_id)
+				LEFT JOIN listings_cities c ON (c.city_id = d.city_id)
+				WHERE d.status = 1
+				'. ($category_ids ?  ((count($category_ids) ? 'AND i2c.category_id IN ('.implode(', ', $category_ids).')' : '')) : '') .
+				($search ?
+					" AND (
+						name_en LIKE '%".$search."%'
+						OR name_zh LIKE '%".$search."%'
+					)"
+					: '') . '
+				AND c.live = 1
+				AND d.city_id = ' . (int) $city_id .
+				($orderBy ? ' ORDER BY ' . $orderBy . ' ' . $order : '');
+		return $sql;
+	}
+
+	public function getListings(&$pager, $city_id = 0, $category_id = 0, $search = false, $orderBy = 'ts_updated', $order = 'DESC') {
+		$sql = $this->getListingsSQL($city_id, $category_id, $search, $orderBy, $order);
+		
+		$rs = $pager->setSQL($sql);
+		$items = '';
+		$li = new ListingsItem;
+		while ($row = $rs->getRow()) {
+			$li->setData($row);
+			$items .= $li->displayPublic(true);
+		}
+
+		return $items;
+	}
+}
+?>

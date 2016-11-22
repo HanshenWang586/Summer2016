@@ -1,0 +1,10 @@
+#blog_thumbnails {
+	float: left;
+	margin-bottom: 10px;
+}
+
+#blog_thumbnails li {
+	float: left;
+	margin-right: 3px;
+	margin-bottom: 3px;
+}

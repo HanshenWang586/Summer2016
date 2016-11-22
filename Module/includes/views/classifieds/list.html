@@ -1,0 +1,23 @@
+<h1 class="dark"><?=$this->name;?></h1>
+<div id="controls">
+	<a class="button" href="<?=$this->url(array('m' => 'classifieds', 'view' => 'post', 'id' => $this->folder_id));?>"><span class="icon icon-edit"> </span> <?=$this->lang('POST_NEW', 'ClassifiedsModel');?></a>
+	<? if ($GLOBALS['user']->isLoggedIn()) { ?>
+	<a class="icon-link" href="<?=$this->url(array('m' => 'classifieds', 'view' => 'subscribe', 'id' => $this->folder_id));?>"><span class="icon icon-mail"> </span><?=$this->lang($this->subscribed ? 'UNSUBSCRIBE' : 'SUBSCRIBE', 'ClassifiedsModel')?></a>
+	<? } else { ?>
+	<a class="icon-link" href="<?=$this->url(array('m' => 'users', 'view' => 'login'));?>"><span class="icon icon-login"> </span><?=$this->lang('LOGIN_TO_SUBSCRIBE', 'ClassifiedsModel')?></a>
+	<? } ?>
+	<a class="icon-link" href="<?=$this->url(array('m' => 'classifieds', 'view' => 'folder_rss', 'id' => $this->folder_id));?>"><span class="icon icon-feed"> </span><?=$this->lang('RSS_FEED')?></a>
+</div>
+<form id="searchBlogForm" class="searchForm<? echo $GLOBALS['model']->args['search'] ? ' hasSearchValue' : '';?>" method="get" action="<?=$this->url(false, false, true);?>">
+	<div>
+		<?=$GLOBALS['model']->tool('tag')->input(array('attr' => array('type' => 'search', 'class' => 'text', 'placeholder' => $this->lang('SEARCH', 'ClassifiedsModel', false, true), 'id' => 'inputQ', 'name' => 'search', 'value' => $GLOBALS['model']->args['search'])));?>
+		<input autocomplete="off" class="searchSubmit" type="submit" value="<?=$this->lang('SEARCH_BUTTON_UPDATE', 'ClassifiedsModel', false, true);?>">
+		<a href="<?=$this->url(array('page' => false, 'search' => false), false, true);?>" class="icon icon-cancel searchCancel"><span><?=$this->lang('SEARCH_BUTTON_CANCEL', 'ClassifiedsModel')?></span></a>
+	</div>
+</form>
+<div class="userContentList classifiedsList">
+	<p><?=$this->description;?></p>
+
+	<?=$this->content; ?>
+	<div class="pagination"><?=$this->pagination; ?></div>
+</div>

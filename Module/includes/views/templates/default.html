@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<meta name="google-site-verification" content="TInDwUhpiXB1CgCUSd_c_M3eS-hx0iMZj84oj6aK4c8">
+		<meta name="msvalidate.01" content="86F18E3FCFA40027D18A7BBF3082EF8F">
+		<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-152x152-precomposed.png">
+		<base href="<?=$GLOBALS['URL']['root'];?>">
+		
+		<!-- IE11 pinning and live tiles -->
+		<meta name="application-name" content="GoKunming.com">
+		<meta name="msapplication-config" content="/browserconfig.xml">
+		
+		<meta name="msapplication-task" content="name=Article archives;action-uri=/en/blog/">
+		<meta name="msapplication-task" content="name=Kunming Events Calendar;action-uri=/en/calendar/">
+		<meta name="msapplication-task" content="name=Classifieds;action-uri=/en/classifieds/">
+		<meta name="msapplication-task" content="name=Forums;action-uri=/en/forums/">
+		<meta name="msapplication-task" content="name=GoKunming on Weibo;action-uri=http://weibo.com/gokunming">
+		<meta name="msapplication-task" content="name=GoKunming on Facebook;action-uri=https://www.facebook.com/GoKunming">
+		<meta name="msapplication-TileColor" content="#222222">
+		<meta name="msapplication-TileImage" content="/assets/ms/144.png">
+		<meta name="msapplication-starturl" content="/en/">
+		<meta name="msapplication-window" content="width=1250;height=768">
+		
+		<!-- us -->
+		<link rel="publisher" href="https://plus.google.com/+Gokunming%E6%BB%87">
+		<link rel="me" type="text/html" href="https://plus.google.com/+Gokunming%E6%BB%87">
+		<link rel="me" type="text/html" href="https://twitter.com/gokunming">
+		<link rel="me" type="text/html" href="https://www.facebook.com/GoKunming">
+		
+<?=$this->meta_tags;?>
+		<title><?=strip_tags($this->page_title);?></title>
+		
+		<link href="/en/rss/" rel="alternate" type="application/rss+xml">
+		<link href="/css/bootstrap.css?1" rel="stylesheet">
+		<!-- <link href='http://fonts.googleapis.com/css?family=Raleway:200,300,500,600,800' rel='stylesheet'> -->
+		<link href="/css/raleway.css" rel="stylesheet">
+		<link href="/css/icons-2.css?2" rel="stylesheet">
+		<link href="/css/layout.css?70" rel="stylesheet">
+		<link href="/css/nivo-lightbox.css" rel="stylesheet">
+		<?=$this->css;?>
+		<?=$this->header_extra;?>
+		
+		<script>
+			(function() {
+				if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+					var msViewportStyle = document.createElement("style");
+					msViewportStyle.appendChild(
+						document.createTextNode("@-ms-viewport{width:auto!important}")
+					);
+					document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+				}
+			})();
+		</script>
+		<script src="js/modernizr.js"></script>
+		<!--[if lte IE 8]>
+			<link href="/css/ie8.css" rel="stylesheet">
+		<!--<![endif]-->
+		<!--[if lte IE 7]>
+			<script src="css/ie7-icons.js"></script>
+		<!--<![endif]-->
+		<? if (!constant('LOCAL')) {  ?>
+		<script>
+            window.trackerCode = 'UA-563162-1';
+			var _gaq = _gaq || [];
+			var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+			_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+			_gaq.push(['_setAccount', window.trackerCode]);
+			_gaq.push(['_trackPageview']);
+			_gaq.push(function(){
+				window.pageTracker = _gat._getTracker(trackerCode);
+				$(function() {
+					trackOutgoing();
+					trackAds();
+				});
+			});
+			
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+		<? } ?>
+	</head>
+
+	<body>
+		<div id="superWrapper"><header id="menuWrapper">
+			<span id="menuToggle" aria-hidden="true"><span aria-hidden="true" class="icon icon-reorder"> </span> Menu</span>
+			<nav class="container">
+				<div id="mainMenu"><?=$this->menu;?></div>
+				<ul class="flyoutMenu" id="toolsMenu">
+					<? /* <li tabindex="0" id="messagesMenu" class="interactive">
+						<span class="icon icon-comment"><span><?=$this->lang('MENU_MESSAGES');?></span></span>
+						<span class="flyout">
+							<ul>
+								<li><a href="#"><span class="icon icon-envelope"></span>message 1</a></li>
+							</ul>
+							<a href="/en/users/pm_inbox/"><span class="icon icon-right icon-arrow-right-2"></span>All messages</a>
+						</span>
+					</li>
+					*/ ?>
+					<li tabindex="0" id="userMenu" class="interactive">
+						<span class="icon icon-user"><span><?=$this->lang('MENU_MY_ACCOUNT');?></span></span>
+						<ul class="flyout">
+							<?=$this->user_status;?>
+						</ul>
+					</li>
+					<? if ($this->weather and request($this->weather['current_observation'])) { ?>
+					<li tabindex="0" class="interactive <?=$this->weather['daytime'] ? 'day' : 'night';?>" id="weatherMenu">
+						<span class="icon icon-<?=$this->weather['current_observation']['icon']?>"></span>
+						<span class="flyout">
+							<span class="title"><?=$this->weather['current_observation']['weather'];?></span>
+							<span class="description"><?=$this->weather['city']?></span>
+							<span class="list list-temp">
+								<span class="updated list-item">
+									<span class="weatherName"><?=$this->lang('WEATHER_UPDATED');?></span>
+									<span class="weatherValue"><?=date('g:ia', $this->weather['current_observation']['observation_epoch']);?></span>
+								</span>
+								<span class="icon list-item icon-<?=$this->weather['current_observation']['icon']?>"></span>
+								<span class="temperature list-item">
+									<span class="current"><?=$this->weather['current_observation']['temp_c'];?>°C</span>
+									<span class="low"><?=$this->weather['forecast']['simpleforecast']['forecastday'][0]['low']['celsius'];?>°C</span>
+									<span class="high"><?=$this->weather['forecast']['simpleforecast']['forecastday'][0]['high']['celsius'];?>°C</span>
+								</span>
+							</span>
+							<span class="list list-3">
+								<span class="list-item humidity">
+									<span class="weatherName"><?=$this->lang('WEATHER_HUMIDITY');?></span>
+									<span class="weatherValue"><?=$this->weather['current_observation']['relative_humidity'];?></span>
+								</span>
+								<span class="list-item precip">
+									<span class="weatherName"><?=$this->lang('WEATHER_VISIBILITY');?></span>
+									<span class="weatherValue"><?=$this->weather['current_observation']['visibility_km'] . (is_numeric($this->weather['current_observation']['visibility_km']) ? 'km' : '');?></span>
+								</span>
+								<span class="list-item wind">
+									<span class="weatherName"><?=$this->lang('WEATHER_WIND');?></span>
+									<span class="weatherValue"><?=$this->weather['current_observation']['wind_kph'];?>kph</span>
+								</span>
+							</span>
+							<span class="list list-2">
+								<span class="list-item sunrise">
+									<span class="weatherName"><?=$this->lang('WEATHER_SUNRISE');?></span>
+									<span class="weatherValue"><?=$this->weather['sunrise']->format('g:ia');?></span>
+								</span>
+								<span class="list-item sunset">
+									<span class="weatherName"><?=$this->lang('WEATHER_SUNSET');?></span>
+									<span class="weatherValue"><?=$this->weather['sunset']->format('g:ia');?></span>
+								</span>
+							</span>
+						</span>
+					</li>
+					<? } ?>
+				</ul>
+			</nav>
+		</header>
+		<div id="contentWrapper">
+		<div id="cover"></div>
+		<div id="container" class="container">
+			<a id="logo" href="/en/" title="<?=$this->lang('SITE_TITLE', false, false, true)?>">
+				<h1 id="siteTitle"><?=$this->lang('SITE_NAME');?></h1>
+				<h2 id="siteTagLine"><?=$this->lang('SITE_SHORT_DESCR');?></h2>
+			</a>
+			<div class="pro" id="promWide"><?=$this->topBanner; ?></div>
+			<div id="main" class="row">
+				<div class="span8" id="mainContent">
+					<?= $this->log . $this->main; ?>
+				</div>
+				<aside class="span4" id="sidebar">
+					<section id="sidebar_calendar" class="panel">
+						<h1><a href="/en/calendar/"><span class="icon icon-calendar"></span><?=$this->lang('MENU_CALENDAR');?></a></h1>
+						<?=$this->calendar;?>
+						<a class="seeAll icon-right icon-link" href="<?=$this->url(array('m' => 'calendar'))?>"><?=$this->lang('SEE_ALL_EVENTS')?> <span class="icon icon-arrow-right-2"> </span></a>
+					</section>
+					<div class="pro promSide" id="promTopLeft"><?php echo $this->topSidebar; ?></div>
+					<section class="panel">
+						<h1><a href="/en/classifieds/"><span class="icon icon-earth-2"></span><?=$this->lang('MENU_CLASSIFIEDS');?></a></h1>
+						<?=$this->classifieds;?>
+						<a class="seeAll icon-right icon-link" href="<?=$this->url(array('m' => 'classifieds', 'view' => 'all'))?>"><?=$this->lang('SEE_ALL_CLASSIFIEDS')?> <span class="icon icon-arrow-right-2"> </span></a>
+					</section>
+					<section class="panel">
+						<h1><a href="/en/forums/"><span class="icon icon-bubbles"></span><?=$this->lang('MENU_FORUMS');?></a></h1>
+						<?=$this->forums;?>
+						<a class="seeAll icon-right icon-link" href="<?=$this->url(array('m' => 'forums', 'view' => 'all'))?>"><?=$this->lang('SEE_ALL_FORUMS')?> <span class="icon icon-arrow-right-2"> </span></a>
+					</section>
+					<div class="pro promSide" id="promBottomLeft"><?php echo $this->bottomSidebar; ?></div>
+					<section class="panel">
+						<h1><a href="/en/blog/comments/"><span class="icon icon-pen"></span><?=$this->lang('COMMENTS');?></a></h1>
+						<?=$this->comments;?>
+						<a class="seeAll icon-right icon-link" href="<?=$this->url(array('m' => 'blog', 'view' => 'comments'))?>"><?=$this->lang('SEE_ALL_COMMENTS')?> <span class="icon icon-arrow-right-2"> </span></a>
+					</section>
+				</aside>
+			</div>
+		</div>
+		<footer id="mainFooter">
+			<div class="container">
+				<div class="row">
+					<section class="span4">
+						<h2><?=$this->lang('SITE_NAME');?></h2>
+						<ul>
+							<li><a href="/en/contact/"><?=$this->lang('MENU_CONTACT_US');?></a></li>
+							<li><a href="/en/pages/t/write-for-us/"><?=$this->lang('MENU_CONTRIBUTE');?></a></li>
+							<li><a href="/en/pages/t/internships/"><?=$this->lang('MENU_INTERNS');?></a></li>
+							<li><a href="/en/pages/t/copyright/"><?=$this->lang('MENU_COPYRIGHT');?></a></li>
+							<li><a href="/en/pages/t/privacy/"><?=$this->lang('MENU_PRIVACY');?></a></li>
+							<li><a href="/en/pages/t/terms-of-service/"><?=$this->lang('MENU_TERMS_OF_SERVICE');?></a></li>
+							<li><a href="/en/pages/t/guidelines/"><?=$this->lang('MENU_GUIDELINES');?></a></li>
+						</ul>
+					</section>
+					<section class="span4">
+						<h2><?=$this->lang('MENU_ABOUT_US');?></h2>
+						<p>
+							<?=$this->lang('SITE_LONG_DESCR');?>
+						</p>
+					</section>
+					<section class="span4">
+						<h2><?=$this->lang('MENU_BUSINESSES');?></h2>
+						<ul>
+							<li><a href="/en/calendar/post/"><?=$this->lang('MENU_SUBMIT_EVENT');?></a></li>
+						</ul>
+					</section>
+					<section class="span4">
+						<h2><?=$this->lang('MENU_SOCIAL');?></h2>
+						<?=$this->social?>
+					</section>
+					<section id="footerLogo" class="span8">
+						<img alt="<?=$this->lang('SITE_NAME')?>" src="/assets/logo/logo-copyright-2014.png">
+					</section>
+					<section class="span4">
+						<img style="margin: auto; border-radius: 10px; overflow: hidden;" src="assets/logo/double-qr-2.png" width="340" height="184" alt="GoKunming QR Codes">
+					</section>
+				</div>
+			</div>
+		</footer></div></div>
+		<!--[if lt IE 9]>
+			<script src="/js/jquery-1.10.2.min.js"></script>
+		<![endif]-->
+		<!--[if gte IE 9]><!-->
+			<script src="/js/jquery-2.0.3.min.js"></script>
+		<!--<![endif]-->
+		<script src="/js/jquery/jquery.timeago.js"></script>
+		<script src="/js/jquery/jquery.easing.1.3.js"></script>
+		<script src="/js/jquery/jquery.scrollTo.js"></script>
+		<script src="/js/jquery/jquery.tools.js"></script>
+		<script src="/js/nivo-lightbox.min.js"></script>
+		<?=$this->scripts_lower . $this->scripts; ?>
+		<script src="/js/init.js?24"></script>
+		<?=$this->js;?>
+	</body>
+</html>

@@ -1,0 +1,263 @@
+body {
+	margin: 0;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #666;
+	background-color: #222;
+	text-align: center;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+#superWrapper { position: relative; left: 0; }
+
+ul.bokmItems { margin-bottom: 10px; overflow: hidden; }
+ul.bokmItems a, ul.bokmItems input, ul.bokmItems span.labelCaption, ul.bokmItems label { float: left; margin-right: 10px; }
+ul.bokmItems input { margin-top: 4px; }
+ul.bokmItems span.labelCaption { width: auto; text-align: left; }
+ul.bokmItems a { font-size: 0.9em; opacity: 0; position: absolute; right: -150px; bottom: 4px; background: url("/images/gokunming/arrow_right.png") right 5px no-repeat; padding-right: 13px; }
+ul.bokmItems label { clear: both; width: auto; float: none; text-align: left; background-color: #224466; padding: 5px; position: relative; overflow: hidden; vertical-align: middle; margin-bottom: 5px; display: block; overflow: hidden;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-transition: all 0.4s ease-out;
+     -moz-transition: all 0.4s ease-out;
+       -o-transition: all 0.4s ease-out;
+          transition: all 0.4s ease-out;
+	
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+}
+ul.bokmItems label.hover a { right: 0px; opacity: 1; }
+ul.bokmItems label.hover { background: #2B5580;}
+ul.bokmItems a {
+  -webkit-transition: all 0.4s ease-out;
+     -moz-transition: all 0.4s ease-out;
+       -o-transition: all 0.4s ease-out;
+          transition: all 0.4s ease-out;
+}
+
+label { cursor: pointer; }
+
+#topAnchor { line-height: 0; }
+
+.vcard { padding-bottom: 5px; }
+
+.vcard h2 { text-align: left; margin-left: 5px; }
+.vcard .imageWrapper {
+	float: right;
+	line-height: 0;
+	margin: 5px 5px 10px 15px;
+	-webkit-border-radius: 500px;
+	border-radius: 500px;
+	clear: right;
+	border: 8px solid white;
+	-moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+  -webkit-transition: all 0.4s ease-out;
+     -moz-transition: all 0.4s ease-out;
+       -o-transition: all 0.4s ease-out;
+          transition: all 0.4s ease-out;
+}
+
+.vcard .imageWrapper img { float: right;
+	-webkit-border-radius: 500px;
+	border-radius: 500px;
+	-moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+	border: 8px solid #0982DF;
+}
+	
+.vcard .bio { clear: none; text-align: left; overflow: hidden; margin-bottom: 10px; line-height: 21px; background-color: white; border-radius: 10px; padding: 10px; }
+
+#postsTitle { clear: both; }
+
+iframe html {
+	text-align: right;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 0.5em;
+	line-height: 1.7em;
+	clear: both;
+}
+
+a.red {
+	color: #FF7777!important;
+}
+
+.info { cursor: help; }
+
+.green {
+	color: #7F7;
+}
+
+img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+select {
+	margin-right:2px;
+}
+
+fieldset {
+	border:0;
+	padding:0;
+	margin:0;
+}
+
+legend {
+	font-style:italic;
+	margin-bottom: 5px;
+}
+
+label.noStyle { float: none; width: auto; margin-right: auto; text-align: left; }
+
+label em {
+	color:#f00;
+}
+
+.listingTable { border-collapse: collapse; border: 0; }
+.listingTable th, .listingTable td { vertical-align: top; text-align: center; padding: 5px 4px; }
+.listingTable tr.even,
+.listingTable thead tr { background-color: #2B5580; }
+
+#listings_review textarea {
+	width: 270px;
+}
+
+a:link, a:visited {
+	text-decoration:none;
+	color: #0982df;
+}
+
+a:hover { color: #333; }
+
+#mainContent p a:hover {
+	color: #777;
+}
+
+a h1,
+a h2,
+a {
+	outline: none;
+  -webkit-transition: color 0.2s ease-out, background 0.2s ease-out, opacity 0.2s ease-out, border-color 0.2s ease-out;
+     -moz-transition: color 0.2s ease-out, background 0.2s ease-out, opacity 0.2s ease-out, border-color 0.2s ease-out;
+       -o-transition: color 0.2s ease-out, background 0.2s ease-out, opacity 0.2s ease-out, border-color 0.2s ease-out;
+          transition: color 0.2s ease-out, background 0.2s ease-out, opacity 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+ul {
+	padding:0;
+	margin:0;
+	list-style-type:none;
+}
+
+.chinese {
+	ffont-family:'微软雅黑','幼圆','黑体','宋体';
+	font-size:1.2em;
+	font-weight:normal;
+	position: relative;
+	top: 0.05em;
+}
+
+h1 .chinese, h2 .chinese, h3 .chinese {
+	font-size: 1em;
+}
+
+.helptext {
+	font-size: 0.9em;
+}
+
+.helptext ul {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+	padding-left: 25px;
+	padding-right: 60px;
+	border-left: 3px solid #0982DF;
+	background-color: #2B5580;
+}
+
+.helptext li {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+#sidebar p {
+	margin:0;
+	padding:0;
+}
+
+#right p {
+	margin-bottom: 10px;
+}
+
+rating {
+	font-size:24px;
+	display:inline-block;
+	padding:3px;
+	padding-bottom:5px;
+	margin:0 -5px 3px 0;
+}
+
+#pmrecipients_results {
+	display:none;
+	position:relative;
+	top:-352px;
+	left:130px;
+	background-color:#2B5580;
+	z-index:50;
+	padding:3px;
+	width:299px;
+}
+
+#pmrecipients_results li {
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+#pm_folder #pm_menu {
+	width:100%;
+	margin-bottom:20px;
+	clear:both;
+}
+
+#pm_folder #pm_menu li {
+	border:0;
+	display:inline;
+	margin-right:30px;
+	text-transform:uppercase;
+	font-size:0.8em;
+}
+
+.pm_message_controls {
+	float:right;
+}
+
+.pm_message {
+	background-color: #2B5580;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+.pm_message dt {
+	color:#ddd;
+	float:left;
+	line-height:120%;
+	display:block;
+}
+
+.pm_message dd {
+	margin-left:100px;
+	line-height:120%;
+	clear:right;
+}
+
+#team_list { margin-top: 10px; }
+
+#team_list li {
+	float: left;
+	width: 100%;
+	clear: both;
+}

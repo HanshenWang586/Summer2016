@@ -1,0 +1,16 @@
+<div class="sidebarCalendarDay">
+	<div class="tabs">
+		<div class="tab" id="sidebar_events">
+			<h3><?=$this->lang('MENU_CALENDAR_EVENTS');?></h3>
+			<?=$this->events ? $this->events : '<p class="noEvents"><span class="icon icon-info"> </span>' . $this->lang('NO_EVENTS_FOUND', 'CalendarModel') . '</p>';?>
+		</div>
+		<div class="tab" id="sidebar_specials">
+			<h3><?=$this->lang('MENU_CALENDAR_SPECIALS');?></h3>
+			<?=$this->specials ? $this->specials : '<p class="noEvents"><span class="icon icon-info"> </span>' . $this->lang('NO_SPECIALS_FOUND', 'CalendarModel') . '</p>';?>
+		</div>
+		<div class="tab" id="sidebar_upcoming">
+			<h3><?=$this->lang('MENU_CALENDAR_UPCOMING');?></h3>
+			<?=$this->upcoming ? $this->upcoming : '<p class="noEvents"><span class="icon icon-info"> </span>' . $this->lang('NO_UPCOMING_FOUND', 'CalendarModel') . '</p>';?>
+		</div>
+	</div>
+</div>

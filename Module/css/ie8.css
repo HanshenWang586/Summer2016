@@ -1,0 +1,4 @@
+.tooltip-text { display: none!important; }
+
+#logo h1, #logo h2 { display: none; }
+#logo { width: 160px; height: 121px; background: url(../assets/logo/small-logo-ie8.png) center center no-repeat; padding: 0; }

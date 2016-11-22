@@ -1,0 +1,5 @@
+index.php|Search
+added.php|Added
+cities.php|Cities
+reviews.php|Reviews
+squashing.php|Squashing

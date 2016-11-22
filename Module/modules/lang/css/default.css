@@ -1,0 +1,7 @@
+table.langList { border-collapse: collapse; width: 100%; clear: both; }
+table.langList th { padding: 5px 10px; font-size: 1.4em; }
+table.langList td { padding: 4px 5px; border: 1px solid #ccc; }
+
+span.lang_m { cursor: pointer; position: relative; }
+span.lang_m form { width: 100%; }
+span.lang_hover { color: blue; }

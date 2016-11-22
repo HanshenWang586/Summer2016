@@ -1,0 +1,6 @@
+index.php|Search
+area_stats.php|Area Statistics
+register_stats.php|Register Statistics
+login_stats.php|Login Statistics
+logins.php|Logins
+sessions.php|Current Sessions

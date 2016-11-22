@@ -1,0 +1,98 @@
+#mainContent h1, #mainContent h2, #mainContent h3 { text-align: left; }
+
+label span { display: block; }
+label.checkbox { margin-top: 25px; }
+label.checkbox input {  margin-right: 5px; }
+label.checkbox input,
+label.checkbox span { float: left; clear: none; }
+
+.textContent { margin: 10px 0; }
+.textContent form { position: relative; overflow: hidden; display: block; }
+
+#selectCategories { width: 100%; overflow: hidden; }
+#selectCategories li { float: left; margin-right: 30px; position: relative; }
+#selectCategories span.text { clear: none; }
+#selectCategories select { width: 240px; }
+
+input.submit { float: right; margin-top: 10px; margin-right: 10px; }
+
+div.category { position: relative; border-bottom: 1px solid #D8D8D8; padding-bottom: 10px; margin-bottom: 10px; }
+div.category h3 { clear: both; }
+div.category span.icon { margin-bottom: 5px; }
+.textContent h2 { font-size: 14px; }
+
+ul.langNames { overflow: hidden; margin-bottom: 5px; margin-left: 10px; }
+	ul.langNames li { line-height: 24px; font-size: 13px; }
+	ul.langNames .lang_m { display: block; text-decoration: underline; }
+
+span.actions { position: absolute; right: 0; top: 0px; }
+span.actions a { float: right; }
+span.actions img { vertical-align: middle; }
+
+#categoriesForm span.actions { display: none; }
+#categoriesForm span.actions a { line-height: 25px; margin-left: 5px; }
+
+.addCategoryForm input.text { width: 200px; }
+
+span.showFieldOptions { color: #447D9D; }
+span.hover { text-decoration: underline; }
+
+span.icon { float: left; margin-right: 10px; border: 1px solid #ccc; padding: 2px 5px; background-color: white; position: relative; }
+a.deleteIcon { position: absolute; right: -12px; top: -4px; }
+
+div.fieldsWrapper { position: relative; margin-bottom: 15px; }
+h4 { font-size: 1.2em; font-style: italic; margin-left: 10px; }
+ul.fieldsList,
+div.noFieldsInfo { padding: 5px 10px; margin-bottom: 5px; width: 700px; }
+	ul.fieldsList li.field { padding: 4px 10px; position: relative; margin-bottom: -1px; border: 1px solid #D8D8D8; font-size: 14px; }
+		ul.fieldsList span.item { line-height: 25px; display: block; position: relative; }
+		ul.fieldsList span.item label * { float: left; clear: none; margin-right: 5px; }
+		ul.fieldsList span.fieldType { font-style: italic; color: #888; }
+		ul.fieldsList a { text-decoration: none; margin-left: 5px; margin-right: 5px; }
+		ul.fieldsList a:hover { text-decoration: underline; }
+div.noFieldsInfo {  color: #888; }
+form.addFieldForm {  }
+	form.addFieldForm label { float: left; margin-right: 10px; }
+	form.addFieldForm select { margin-top: 2px; }
+input.smallSubmit { float: left; margin-top: 29px; }
+
+span.optionsWrapper { display: block; margin: 5px; overflow: hidden; }
+	ul.optionsList { margin-bottom: 5px; }
+		ul.optionsList li { position: relative; line-height: 19px; font-size: 13px; padding: 3px 10px; overflow: hidden; }
+		li.odd { background: #ddd; }
+		ul.optionsList form { background-color: white; border: 1px solid #D8D8D8; display: block; clear: both; margin: 5px; overflow: hidden; padding: 5px 10px; }
+			ul.optionsList form label span { line-height: 21px; }
+			ul.optionsList form label,
+			ul.optionsList form label span,
+			ul.optionsList form input { float: left; }
+			ul.optionsList form input.smallSubmit,
+			ul.optionsList form label span { margin-right: 5px; }
+			ul.optionsList form input.smallSubmit,
+			ul.optionsList form input.cancel { margin-top: 3px; }
+			span.bulkWrapper { display: block; clear: both; margin-top: 5px; clear: both; overflow: hidden; }
+			span.bulkWrapper span { clear: both; display: block; }
+			span.bulkWrapper input.smallSubmit { clear: both; }
+
+form.moveFieldsToGroupForm {
+  background-color: #EEEEEE;
+  border: 1px solid #D8D8D8;
+  margin: -10px 0 5px 15px;
+  padding: 5px 5px 5px 10px;
+  width: 650px;
+  z-index: 3;
+}
+div.moveFields span { line-height: 25px; }
+div.moveFields input.smallSubmit,
+div.moveFields select { margin-top: 3px; }
+div.moveFields * { float: left; margin-right: 5px; }
+
+.addFieldValueForm { font-size: 12px; overflow: hidden; margin-top: 5px; padding: 0 10px; }
+.addFieldValueForm label span.text { float: left; margin-right: 5px; }
+.addFieldValueForm label { float: left; margin-right: 5px; }
+.addFieldValueForm input.text { margin-right: 0px; }
+.addFieldValueForm input.smallSubmit { margin: 3px 0 0; }
+
+.editCategoryIconForm { overflow: hidden; clear: both; margin-bottom: 5px; }
+.editCategoryIconForm input.smallSubmit { margin-top: 4px; margin-left: 5px; }
+.editCategoryIconForm label,
+.editCategoryIconForm label span { float: left; }

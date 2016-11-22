@@ -1,0 +1,20 @@
+<h2>Write A Review</h2>
+	<form id="listings_review" method="post" action="/en/listings/review_proc/">
+		<fieldset>
+			<legend>Comment as <?=$this->nickname;?></legend>
+			<input type="hidden" name="listing_id" value="<?=$this->listing_id;?>">
+			<label for="starRating">Rating:</label>
+			<select id="starRating" name="stars">
+				<option value="1">★</option>
+				<option value="2">★★</option>
+				<option selected="selected" value="3">★★★</option>
+				<option value="4">★★★★</option>
+				<option value="5">★★★★★</option>
+			</select><br>
+			<label for="commentText">Comment</label>
+			<textarea id="commentText" name="review"><?=$this->review;?></textarea><br>
+			<input class="submit" type="submit" value="Save">
+		</fieldset>
+	</form>
+	</li>
+</ul>

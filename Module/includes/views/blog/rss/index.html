@@ -1,0 +1,10 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title><![CDATA[<?=$this->title; ?>]]></title>
+		<link><?=$this->link; ?></link>
+		<atom:link href="<?=$this->atom_link; ?>" rel="self" type="application/rss+xml" />
+		<description><![CDATA[<?=$this->description; ?>]]></description>
+		<lastBuildDate><?=date('r')?></lastBuildDate>
+		<?=$this->items; ?>
+	</channel>
+</rss>

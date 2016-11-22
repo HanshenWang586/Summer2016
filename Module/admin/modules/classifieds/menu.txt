@@ -1,0 +1,4 @@
+index.php|Waiting
+list.php|All
+stats.php|Statistics
+categories.php|Categories

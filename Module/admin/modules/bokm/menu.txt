@@ -1,0 +1,5 @@
+index.php|List Candidates
+form_candidate.php|Add a Candidate
+summary.php|Summary
+results.php|Results
+voters.php|Voters

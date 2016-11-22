@@ -1,0 +1,21 @@
+<section id="blog_list">
+	<header id="contentHeader">
+		<h1><?php echo $this->title; ?></h1>
+		<?=$this->extra;?>
+	</header>
+	<div id="controls">
+		<a class="icon-link" href="/en/rss/"><span class="icon icon-feed"> </span><?=$this->lang('LINK_RSS_FEED');?></a>
+	</div>
+	<form id="searchBlogForm" class="searchForm<? echo $GLOBALS['model']->args['search'] ? ' hasSearchValue' : '';?>" method="get" action="<?=$this->url(false, false, true);?>">
+		<div>
+			<?=$GLOBALS['model']->tool('tag')->input(array('attr' => array('type' => 'search', 'class' => 'text', 'placeholder' => $this->lang('SEARCH', 'BlogModel', false, true) . ' ' . strtolower($this->category . ' ' . $this->lang('ARTICLES')), 'id' => 'inputQ', 'name' => 'search', 'value' => $GLOBALS['model']->args['search'])));?>
+			<input autocomplete="off" class="searchSubmit" type="submit" value="<?=$this->lang('SEARCH_BUTTON_UPDATE', 'BlogModel', false, true);?>">
+			<a href="<?=$this->url(array('page' => false, 'search' => false), false, true);?>" class="icon icon-cancel searchCancel"><span><?=$this->lang('SEARCH_BUTTON_CANCEL', 'BlogModel')?></span></a>
+		</div>
+	</form>
+	<?=$this->searchInfo;?>
+	<div class="itemList">
+		<?=$this->content;?>
+	</div>
+	<?=$this->pagination;?>
+</section>

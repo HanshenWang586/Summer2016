@@ -1,0 +1,24 @@
+<div class="addthis_toolbox" addthis:title="<?=htmlspecialchars(strip_tags($this->title), ENT_COMPAT, 'UTF-8'); ?>">
+	<ul class="social">
+		<li><a class="addthis_button_facebook tooltip"><span class="icon icon-facebook"> </span><span class="tooltip-text"><?=$this->lang('FACEBOOK');?></span></a></li>
+		<li><a class="addthis_button_reddit tooltip"><span class="icon icon-reddit"> </span><span class="tooltip-text"><?=$this->lang('REDDIT');?></span></a></li>
+		<li><a class="addthis_button_linkedin tooltip"><span class="icon icon-linkedin"> </span><span class="tooltip-text"><?=$this->lang('LINKED_IN');?></span></a></li>
+		<li><a class="addthis_button_twittertooltip tooltip tw:via="GoKunming""><span class="icon icon-twitter"> </span><span class="tooltip-text"><?=$this->lang('TWITTER');?></span></a></li>
+		<li><a class="addthis_button_google_plusone_share tooltip"><span class="icon icon-googleplus"> </span><span class="tooltip-text"><?=$this->lang('GOOGLE_PLUS');?></span></a></li>
+		<li><a class="addthis_button_sinaweibo tooltip"><span class="icon icon-weibo"> </span><span class="tooltip-text"><?=$this->lang('SINA_WEIBO');?></span></a></li>
+		<li><a class="addthis_button_qzone tooltip"><span class="icon icon-qzone"> </span><span class="tooltip-text"><?=$this->lang('QZONE');?></span></a></li>
+		</a><a class="addthis_button_email tooltip"><span class="icon icon-envelope"> </span><span class="tooltip-text"><?=$this->lang('MAIL_SHARE');?></span></a>
+	</ul>
+</div>
+<script type="text/javascript">
+	var addthis_config = {
+		data_ga_property: window.trackerCode,
+		data_ga_social: true
+	};
+	var addthis_share = {
+		templates: {
+			twitter: "{{title}} - {{url}} (via @GoKunming)"
+		}	
+	};
+</script>
+<!-- AddThis Button END -->
